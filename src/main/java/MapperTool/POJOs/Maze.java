@@ -145,10 +145,10 @@ public class Maze {
             yCounter.incrementAndGet();
         });
         this.setEndTime(System.nanoTime());
-        double timeElapsed = (float)(this.getEndTime()-this.getStartTime())/1E9;
+        double timeElapsed = (double)(this.getEndTime()-this.getStartTime())/1E9;
         mazeBuilder.append("</br>");
         String timeMessage = "This operation took: " + timeElapsed + " seconds.";
         mazeBuilder.append(timeMessage);
-        return mazeBuilder.toString().replace("\"", "\\\"");
+        return mazeBuilder.toString();
     }
 }

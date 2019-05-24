@@ -1,4 +1,7 @@
-package MapperTool.POJOs;
+package MapperTool.Utilities;
+
+import MapperTool.POJOs.Coordinate;
+import MapperTool.POJOs.Maze;
 
 import java.util.ArrayList;
 import java.util.Arrays;
