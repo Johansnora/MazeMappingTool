@@ -17,21 +17,18 @@ public class MainController {
 
     @GetMapping
     public String getIndex(Model model){
+        model.addAttribute("completed Maze", "");
         return "home";
     }
 
     @PostMapping
     public String postIndex(@ModelAttribute("maze")String inputString, Model model) {
-        model.addAttribute("completedMaze", MazeMapper.solve(inputString));
-        return"display";
-    }
-
-    @GetMapping("/display")
-    public String getDisplay(Model model){
-        return"display";
-    }
-    @PostMapping("/display")
-    public String postDisplay(Model model){
-        return "home";
+        String solved = "This maze could not be solved";
+        try {
+            solved = MazeMapper.solve(inputString);
+        } catch (NullPointerException e){
+        }
+        model.addAttribute("completedMaze", solved);
+        return"home";
     }
 }

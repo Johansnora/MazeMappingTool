@@ -3,6 +3,7 @@ package MapperTool.Utilities;
 import MapperTool.POJOs.Coordinate;
 import MapperTool.POJOs.Maze;
 
+import javax.validation.constraints.Null;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -15,13 +16,13 @@ public class MazeMapper {
 
     private static int[][] DIRECTIONS = { { 0, 1 }, { 0, -1 }, { 1, 0 }, { -1, 0 } };
 
-    public static String solve(String inputMaze){
+    public static String solve(String inputMaze)throws NullPointerException{
         Maze maze = new Maze(inputMaze);
         List<Coordinate> shortestPath = findShortestPath(maze);
         return maze.buildPath(shortestPath);
     }
 
-    private static List<Coordinate> findShortestPath(Maze maze) {
+    private static List<Coordinate> findShortestPath(Maze maze) throws NullPointerException {
         LinkedList<Coordinate> nextSteps = new LinkedList<>();
         Coordinate start = maze.getStartPoint();
         nextSteps.add(start);
